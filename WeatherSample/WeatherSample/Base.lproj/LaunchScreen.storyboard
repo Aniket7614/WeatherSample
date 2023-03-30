@@ -18,16 +18,30 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Y0-26-3tQ">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cloud" translatesAutoresizingMaskIntoConstraints="NO" id="oe3-e3-deV">
+                                        <rect key="frame" x="77" y="174" width="239" height="224"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="224" id="DF4-xf-kM5"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemCyanColor"/>
+                                <constraints>
+                                    <constraint firstItem="oe3-e3-deV" firstAttribute="centerX" secondItem="9Y0-26-3tQ" secondAttribute="centerX" id="2im-k8-ccc"/>
+                                    <constraint firstItem="oe3-e3-deV" firstAttribute="leading" secondItem="9Y0-26-3tQ" secondAttribute="leading" constant="77" id="96N-m0-bn9"/>
+                                    <constraint firstItem="oe3-e3-deV" firstAttribute="top" secondItem="9Y0-26-3tQ" secondAttribute="top" constant="174" id="sUf-He-rft"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="9Y0-26-3tQ" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="9ZR-IG-eUv"/>
-                            <constraint firstAttribute="trailing" secondItem="9Y0-26-3tQ" secondAttribute="trailing" id="Fcg-Lv-xDm"/>
-                            <constraint firstAttribute="bottom" secondItem="9Y0-26-3tQ" secondAttribute="bottom" id="Rvt-0N-RsC"/>
-                            <constraint firstItem="9Y0-26-3tQ" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="jxO-AN-C1b"/>
+                            <constraint firstItem="9Y0-26-3tQ" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" constant="-59" id="Dzi-dd-DuU"/>
+                            <constraint firstItem="9Y0-26-3tQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EhO-jc-5uU"/>
+                            <constraint firstItem="9Y0-26-3tQ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="g2c-dz-BfR"/>
+                            <constraint firstItem="9Y0-26-3tQ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="i4a-8d-Vyx"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -37,11 +51,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Cloud" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemCyanColor">
+            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
