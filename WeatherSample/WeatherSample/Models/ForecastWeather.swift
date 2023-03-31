@@ -24,7 +24,7 @@ extension ForecastWeather {
         
         // weather[0]
         static let weatherKey = "weather"
-        static let weatherCondition = "main"
+        static let weatherCondition = "description"
         static let icon = "icon"
     }
     

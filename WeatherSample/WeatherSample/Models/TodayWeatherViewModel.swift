@@ -23,21 +23,13 @@ struct TodayWeatherViewModel {
     init(model: TodayWeather) {
         self.cityName = model.cityName
         self.weatherCondition = model.weatherCondition
-        
         self.temperature = TodayWeatherViewModel.formatValue(value: model.temperature, endStringWith: "°")
-        
         self.humidity = TodayWeatherViewModel.formatValue(value: model.humidity, endStringWith: "%")
-        
         self.precipitationProbability = TodayWeatherViewModel.formatValue(value: model.precipitationProbability, endStringWith: " mm", castToInt: false)
-        
         self.pressure = TodayWeatherViewModel.formatValue(value: model.pressure, endStringWith: " hPa")
-        
         self.windSpeed = TodayWeatherViewModel.formatValue(value: model.windSpeed, endStringWith: " km/h")
-        
         self.windDeg = model.windDeg
-        
         self.windDirection = "NE"
-        
         let weatherIcon = WeatherIcon(iconString: model.icon)
         self.icon = weatherIcon.image
     }

@@ -10,55 +10,41 @@ import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
+    // MARK: - Variable declaration
     @IBOutlet weak var vwBg: UIView!
     private let locationManager = CLLocationManager()
     var currentLocation: CLLocation? = nil
     
+    
+    // MARK: - View Life Cycle Method
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         locationManager.delegate = self
-        
         startLocationServices()
-       // setGradientColor()
     }
     
-    func setGradientColor() {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = view.bounds
-
-        // Set the gradient colors
-        gradientLayer.colors = [
-            UIColor.blue.cgColor,
-            UIColor.red.cgColor
-        ]
-
-        // Set the gradient direction (optional)
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
-
-        // Add the gradient layer to the view's layer
-        vwBg.layer.addSublayer(gradientLayer)
-    }
-  
     
+    // MARK: - Location manager delegates
     // Monitor location services authorization changes
-    func locationManager(_ manager: CLLocationManager,
-                         didChangeAuthorization status: CLAuthorizationStatus) {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        
         switch status {
         case .notDetermined:
             break
         case .authorizedWhenInUse, .authorizedAlways:
             if CLLocationManager.locationServicesEnabled() {
-                self.locationManager.startUpdatingLocation()
+               self.locationManager.startUpdatingLocation()
             }
         case .restricted, .denied:
             self.alertLocationAccessNeeded()
+        @unknown default:
+            print(" ")
         }
         
         // Get the device's current location and assign the latest CLLocation value to your tracking variable
@@ -72,24 +58,29 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func startLocationServices() {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
-        let locationAuthorizationStatus = CLLocationManager.authorizationStatus()
-        
-        switch locationAuthorizationStatus {
+        switch locationManager.authorizationStatus {
         case .notDetermined:
             self.locationManager.requestWhenInUseAuthorization() // This is where you request permission to use location services
         case .authorizedWhenInUse, .authorizedAlways:
-            if CLLocationManager.locationServicesEnabled() {
-                self.locationManager.startUpdatingLocation()
-                
-                if let tabbar = (storyboard?.instantiateViewController(withIdentifier: "tabBar") as? UITabBarController) {
-                    self.present(tabbar, animated: true, completion: nil)
+            DispatchQueue.global().async {
+                if CLLocationManager.locationServicesEnabled() {
+                    self.locationManager.startUpdatingLocation()
+                    
+                }    // Showing current location in Tab bar for Today's weather
+                DispatchQueue.main.async {
+                    if let tabbar = (self.storyboard?.instantiateViewController(withIdentifier: "tabBar") as? UITabBarController) {
+                        self.present(tabbar, animated: true, completion: nil)
+                    }}
                 }
-                
-            }
+                    
+            
+            
         case .restricted, .denied:
             self.alertLocationAccessNeeded()
-        }
-    }
+        @unknown default:
+            print(" ")
+        }}
+    
     
     func alertLocationAccessNeeded() {
         let settingsAppURL = URL(string: UIApplication.openSettingsURLString)!

@@ -26,7 +26,7 @@ struct ForecastWeatherViewModel {
     static func getDayOfWeek(from fromDate: Double) -> String {
         let date = Date(timeIntervalSince1970: fromDate)
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE"
+        dateFormatter.dateFormat = "EEEE h a"
         let dayOfWeekString = dateFormatter.string(from: date)
         
         return dayOfWeekString

@@ -6,8 +6,9 @@
 //
 
 import Foundation
-struct TodayWeather {
+struct TodayWeather: Decodable {
     var cityName: String = ""
+    var countryName: String = ""
     var temperature: Double = Double.infinity
     var weatherCondition: String = ""
     var humidity: Double = Double.infinity
@@ -27,6 +28,7 @@ extension TodayWeather {
         static let temperature = "temp"
         static let humidity = "humidity"
         static let pressure = "pressure"
+        static let countryName = "country"
         
         // rain
         static let rainKey = "rain"
@@ -55,6 +57,10 @@ extension TodayWeather {
             
             if let humidityValue = main[Key.humidity] as? Double {
                 self.humidity = humidityValue
+            }
+            
+            if let countryValue = main[Key.countryName] as? String {
+                self.countryName = countryValue
             }
             
             if let pressureValue = main[Key.pressure] as? Double {
