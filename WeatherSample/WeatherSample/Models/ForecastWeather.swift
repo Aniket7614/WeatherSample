@@ -48,7 +48,5 @@ extension ForecastWeather {
                 self.icon = iconValue
             }
         }
-    }
-    
-}
+    }}
 

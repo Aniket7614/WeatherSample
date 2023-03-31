@@ -107,9 +107,7 @@ class TodayWeatherViewController: UIViewController, UISearchBarDelegate, UISearc
         self.searchTextFieldCity = searchBar.text ?? ""
     }
    
-    
-   
-
+ 
     // MARK: - Search bar updating delegates
 // Search result updating delegate
     func updateSearchResults(for searchController: UISearchController) {
@@ -205,8 +203,7 @@ class TodayWeatherViewController: UIViewController, UISearchBarDelegate, UISearc
 // MARK: - Creating Extension for CLLocation Manager Delegate
 extension TodayWeatherViewController: CLLocationManagerDelegate {
     // new location data is available
-    func locationManager(_ manager: CLLocationManager,
-                         didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager,didUpdateLocations locations: [CLLocation]) {
         // update shaped instance
         Coordinate.sharedInstance.latitude = (manager.location?.coordinate.latitude)!
         Coordinate.sharedInstance.longitude = (manager.location?.coordinate.longitude)!

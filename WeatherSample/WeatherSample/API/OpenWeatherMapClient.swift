@@ -73,6 +73,10 @@ class OpenWeatherMapClient {
                }
                completion(currentWeather, nil)
            }
+           else if response.response?.statusCode == 404 {
+               DispatchQueue.main.async {
+                }
+           }
            else {
                completion(nil, .responseUnsuccessful)
            }}}
@@ -110,55 +114,7 @@ class OpenWeatherMapClient {
                 completion(nil, .responseUnsuccessful)
             }}}
     
-    
-    
-    //Classic Method (Non Alomofire)
-    /*
-     func getForecastWeather(at coordinate: Coordinate, completionHandler completion: @escaping ForecastWeatherCompletionHandler) {
-     
-     var forecasts: [ForecastWeather] = []
-     
-     let parameters: Parameters = self.buildParameters(coordinate: coordinate)
-     
-     print (parameters)
-     print (parameters["appid"] ?? NSString())
-     
-     //let sampleUrlString = "http://api.openweathermap.org/data/2.5/forecast?lat=41.0098876953125&lon=28.8713888390362&units=metric&APPID=67baa261ccbfd6c99703333a6dc8a562"
-     
-     let urlString = NSString(format:"%@%@%@%@%@%@%@%@%@", "http://api.openweathermap.org/data/2.5/forecast?", "lat=", (parameters["lat"]  as! String), "&lon=", (parameters["lon"]  as! String), "&units=", (parameters["units"] as! String), "&APPID=", (parameters["appid"] as! String))
-     
-     print (urlString)
-     
-     guard let url = URL(string: urlString as String) else { return }
-     
-     URLSession.shared.dataTask(with: url) { (data, response, error) in
-     if error != nil {
-     print(error!.localizedDescription)
-     }
-     
-     guard let data = data else { return }
-     
-     if let JSON = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? NSDictionary {
-     
-     print (JSON)
-     
-     if let dict = JSON as? Dictionary<String, AnyObject>{
-     if let list = dict["list"] as? [Dictionary<String, AnyObject>] {
-     for obj in list {
-     let forecast = ForecastWeather(json: obj)
-     forecasts.append(forecast!)
-     }
-     }
-     }
-     }
-     completion(forecasts, nil)
-     
-     
-     }.resume()
-     //End implementing URLSession
-     }
-     */
-    
+
     //MARK: - Defining parameter i.e API Key, Metrics, lat and long
     func buildParameters(coordinate: Coordinate) -> Parameters {
         let parameters: Parameters = [
@@ -170,7 +126,7 @@ class OpenWeatherMapClient {
         return parameters
     }
     
-    
+    //MARK: - Defining parameter i.e API Key, Metrics, cities- This is to get the United state cities
     func buildParametersByCities(strCity: String) -> Parameters {
         let parameters: Parameters = [
             "appid": self.apiKey,

@@ -11,7 +11,6 @@
 		298E8E9129D58745006074AA /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298E8E9029D58745006074AA /* Coordinate.swift */; };
 		298E8E9429D587F9006074AA /* OpenWeatherMapClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298E8E9329D587F9006074AA /* OpenWeatherMapClient.swift */; };
 		298E8E9629D5887D006074AA /* TodayWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298E8E9529D5887D006074AA /* TodayWeatherViewModel.swift */; };
-		298E8E9829D588D1006074AA /* FirebaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298E8E9729D588D1006074AA /* FirebaseProvider.swift */; };
 		298E8E9A29D589CE006074AA /* OpenWeatherMapError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298E8E9929D589CE006074AA /* OpenWeatherMapError.swift */; };
 		298E8E9C29D58A03006074AA /* WeatherIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298E8E9B29D58A03006074AA /* WeatherIcon.swift */; };
 		298E8E9F29D58A45006074AA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298E8E9E29D58A45006074AA /* Constants.swift */; };
@@ -19,7 +18,6 @@
 		298E8EA329D58C44006074AA /* TodayWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298E8EA229D58C44006074AA /* TodayWeather.swift */; };
 		298E8EA529D58C6B006074AA /* ForecastWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298E8EA429D58C6B006074AA /* ForecastWeatherViewModel.swift */; };
 		298E8EA829D5A689006074AA /* TodayWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298E8EA729D5A689006074AA /* TodayWeatherViewController.swift */; };
-		298E8EAB29D5B162006074AA /* VerticalGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298E8EAA29D5B162006074AA /* VerticalGradientView.swift */; };
 		298E8EAD29D5E048006074AA /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298E8EAC29D5E048006074AA /* ForecastViewController.swift */; };
 		298E8EB029D5E18B006074AA /* ForecastDayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298E8EAF29D5E18B006074AA /* ForecastDayTableViewCell.swift */; };
 		29CF2C9B29D61B6400EB7B15 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CF2C9A29D61B6400EB7B15 /* WeatherViewModel.swift */; };
@@ -60,7 +58,6 @@
 		298E8E9029D58745006074AA /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		298E8E9329D587F9006074AA /* OpenWeatherMapClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherMapClient.swift; sourceTree = "<group>"; };
 		298E8E9529D5887D006074AA /* TodayWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWeatherViewModel.swift; sourceTree = "<group>"; };
-		298E8E9729D588D1006074AA /* FirebaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProvider.swift; sourceTree = "<group>"; };
 		298E8E9929D589CE006074AA /* OpenWeatherMapError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherMapError.swift; sourceTree = "<group>"; };
 		298E8E9B29D58A03006074AA /* WeatherIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIcon.swift; sourceTree = "<group>"; };
 		298E8E9E29D58A45006074AA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -68,7 +65,6 @@
 		298E8EA229D58C44006074AA /* TodayWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWeather.swift; sourceTree = "<group>"; };
 		298E8EA429D58C6B006074AA /* ForecastWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeatherViewModel.swift; sourceTree = "<group>"; };
 		298E8EA729D5A689006074AA /* TodayWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWeatherViewController.swift; sourceTree = "<group>"; };
-		298E8EAA29D5B162006074AA /* VerticalGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalGradientView.swift; sourceTree = "<group>"; };
 		298E8EAC29D5E048006074AA /* ForecastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
 		298E8EAF29D5E18B006074AA /* ForecastDayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastDayTableViewCell.swift; sourceTree = "<group>"; };
 		29CF2C9A29D61B6400EB7B15 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
@@ -140,7 +136,6 @@
 			isa = PBXGroup;
 			children = (
 				298E8E9329D587F9006074AA /* OpenWeatherMapClient.swift */,
-				298E8E9729D588D1006074AA /* FirebaseProvider.swift */,
 				298E8E9929D589CE006074AA /* OpenWeatherMapError.swift */,
 			);
 			path = API;
@@ -161,14 +156,6 @@
 				298E8EAC29D5E048006074AA /* ForecastViewController.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		298E8EA929D5B14D006074AA /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				298E8EAA29D5B162006074AA /* VerticalGradientView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		298E8EAE29D5E16C006074AA /* Cell */ = {
@@ -214,7 +201,6 @@
 			children = (
 				29CF2C9529D61B0500EB7B15 /* ViewModel */,
 				298E8EAE29D5E16C006074AA /* Cell */,
-				298E8EA929D5B14D006074AA /* Views */,
 				298E8EA629D5A667006074AA /* Controllers */,
 				298E8E9D29D58A2D006074AA /* Plugins */,
 				298E8E9229D587E2006074AA /* API */,
@@ -521,9 +507,7 @@
 				29F26D7629D483F600A4D9FD /* ViewController.swift in Sources */,
 				298E8E9429D587F9006074AA /* OpenWeatherMapClient.swift in Sources */,
 				298E8E9629D5887D006074AA /* TodayWeatherViewModel.swift in Sources */,
-				298E8EAB29D5B162006074AA /* VerticalGradientView.swift in Sources */,
 				29F26D7229D483F600A4D9FD /* AppDelegate.swift in Sources */,
-				298E8E9829D588D1006074AA /* FirebaseProvider.swift in Sources */,
 				298E8EA329D58C44006074AA /* TodayWeather.swift in Sources */,
 				29F26D7429D483F600A4D9FD /* SceneDelegate.swift in Sources */,
 				298E8E9A29D589CE006074AA /* OpenWeatherMapError.swift in Sources */,
