@@ -139,8 +139,10 @@ class TodayWeatherViewController: UIViewController, UISearchBarDelegate, UISearc
     // MARK: - Get weather for US cities
     func getTodayWeatherByCities(){
         toggleRefreshAnimation(on: true)
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.startAnimating()
         DispatchQueue.main.async {
-            OpenWeatherMapClient.client.getTodayWeatherByCities(at: self.searchTextFieldCity){
+            OpenWeatherMapClient.client.getTodayWeatherByCities(at: self.searchTextFieldCity, viewController: self, activityIndicator: activityIndicator){
                 [unowned self] currentWeather, error in
                 if let currentWeather = currentWeather {
                     todayWeatherViewModel = TodayWeatherViewModel(model: currentWeather)
@@ -149,7 +151,17 @@ class TodayWeatherViewController: UIViewController, UISearchBarDelegate, UISearc
                     self.displayWeather(using: todayWeatherViewModel)
                     // save weather
                     self.toggleRefreshAnimation(on: false)
-                }}}}
+                    activityIndicator.stopAnimating()
+                } else {
+                    activityIndicator.stopAnimating()
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
+                }
+            }
+        }
+    }
+
         
     
     

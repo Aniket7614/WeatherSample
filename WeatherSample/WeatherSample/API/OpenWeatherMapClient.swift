@@ -50,13 +50,16 @@ class OpenWeatherMapClient {
     
     
     //MARK: - Making network connection- With Almofire for Today weather for Cities
-   func getTodayWeatherByCities(at strCity: String, completionHandler completion: @escaping TodayWeatherCompletionHandler) {
+   func getTodayWeatherByCities(at strCity: String, viewController: TodayWeatherViewController, activityIndicator: UIActivityIndicatorView, completionHandler completion: @escaping TodayWeatherCompletionHandler) {
+       // Start the activity indicator
+           activityIndicator.startAnimating()
        guard let url = URL(string: Constants.API_ENDPOINT_CURRENT_WEATHER, relativeTo: baseUrl) else {
            completion(nil, .invalidUrl)
            return
        }
        let parameters: Parameters = self.buildParametersByCities(strCity: strCity)
        Alamofire.request(url, parameters: parameters).responseJSON { response in
+           activityIndicator.stopAnimating()
            guard let JSON = response.result.value as? Dictionary<String, AnyObject> else {
                completion(nil, .invalidaData)
                return
@@ -75,8 +78,13 @@ class OpenWeatherMapClient {
            }
            else if response.response?.statusCode == 404 {
                DispatchQueue.main.async {
+                   let alert = UIAlertController(title: "City not found", message: "The city you searched for was not found. Please try again with a US city name.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    viewController.present(alert, animated: true, completion: nil)
                 }
-           }
+                 
+            }
+           
            else {
                completion(nil, .responseUnsuccessful)
            }}}
