@@ -11,21 +11,20 @@ import Foundation
 import Alamofire
 
 var todayWeatherViewModel: TodayWeatherViewModel!
-
 class TodayWeatherViewController: UIViewController, UISearchBarDelegate, UISearchResultsUpdating {
     
     
     // MARK: - Variable declaration
-    @IBOutlet weak var vwBgWeather: UIView!
-    @IBOutlet var weatherImageView: UIImageView!
-    @IBOutlet var cityNameLabel: UILabel!
-    @IBOutlet var temperatureLabel: UILabel!
-    @IBOutlet var weatherConditionLabel: UILabel!
-    @IBOutlet var humidityLabel: UILabel!
-    @IBOutlet var precipitationLabel: UILabel!
-    @IBOutlet var pressureLabel: UILabel!
-    @IBOutlet var windSpeedLabel: UILabel!
-    @IBOutlet var windDirectionLabel: UILabel!
+    @IBOutlet weak var vwBgWeather: UIView?
+    @IBOutlet var weatherImageView: UIImageView?
+    @IBOutlet var cityNameLabel: UILabel?
+    @IBOutlet var temperatureLabel: UILabel?
+    @IBOutlet var weatherConditionLabel: UILabel?
+    @IBOutlet var humidityLabel: UILabel?
+    @IBOutlet var precipitationLabel: UILabel?
+    @IBOutlet var pressureLabel: UILabel?
+    @IBOutlet var windSpeedLabel: UILabel?
+    @IBOutlet var windDirectionLabel: UILabel?
     let locationManager = CLLocationManager()
     var currentLocation: CLLocation!
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
@@ -184,14 +183,14 @@ class TodayWeatherViewController: UIViewController, UISearchBarDelegate, UISearc
     // MARK: - Display data
     func displayWeather(using viewModel: TodayWeatherViewModel) {
         // Data Binding
-        self.cityNameLabel.text = viewModel.cityName
-        self.temperatureLabel.text = viewModel.temperature
-        self.weatherConditionLabel.text = viewModel.weatherCondition
-        self.humidityLabel.text = viewModel.humidity
-        self.pressureLabel.text = viewModel.pressure
-        self.windSpeedLabel.text = viewModel.windSpeed
-        self.windDirectionLabel.text = viewModel.windDirection
-        self.weatherImageView.image = viewModel.icon
+        self.cityNameLabel?.text = viewModel.cityName
+        self.temperatureLabel?.text = viewModel.temperature
+        self.weatherConditionLabel?.text = viewModel.weatherCondition
+        self.humidityLabel?.text = viewModel.humidity
+        self.pressureLabel?.text = viewModel.pressure
+        self.windSpeedLabel?.text = viewModel.windSpeed
+        self.windDirectionLabel?.text = viewModel.windDirection
+        self.weatherImageView?.image = viewModel.icon
     }
     
     // MARK: - Setting Up Activity indicator
